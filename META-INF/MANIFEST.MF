@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ass1
+Bundle-SymbolicName: ass1
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: ass1
+Bundle-RequiredExecutionEnvironment: JavaSE-10
