@@ -38,37 +38,40 @@ class ServerThread extends Thread {
 	}
 	
 	public void run() {
-		try {
-			// in and out stream
-			InputStream in = socket.getInputStream();
-			OutputStream out = socket.getOutputStream();
-			System.out.println("Waiting for client input...");
-			
-			// buffer client input
-			byte buffer[] = new byte[1024];
-			in.read(buffer);
-			
-			// print out client input and server message
-			String clinetInput = new String(buffer).trim();
-			System.out.println("Received: " + clinetInput);
-			
-			// get word from dictionary
-			String getFromDict = wordWorker.getWord(clinetInput);
-			System.out.println("Definition retrieved: "+ getFromDict);
-			if (getFromDict == null) {
-				getFromDict = "This word doesn't exist in the dictionary.";
-			}
+		while (true){
+			try {
+				// in and out stream
+				InputStream in = socket.getInputStream();
+				OutputStream out = socket.getOutputStream();
+				System.out.println("Waiting for client input...");
 
-			// send reply to client	
-			out.write(getFromDict.getBytes());
-			System.out.println("Response sent...");
-			
-			// close sockets
-			socket.close();			
-			
-		}catch (Exception e) {
-			System.out.println("Error: " + e);
+				// buffer client input
+				byte buffer[] = new byte[1024];
+				in.read(buffer);
+
+				// print out client input and server message
+				String clinetInput = new String(buffer).trim();
+				System.out.println("Received: " + clinetInput);
+
+				// get word from dictionary
+				String getFromDict = wordWorker.getWord(clinetInput);
+				System.out.println("Definition retrieved: "+ getFromDict);
+				if (getFromDict == null) {
+					getFromDict = "This word doesn't exist in the dictionary.";
+				}
+
+				// send reply to client
+				out.write(getFromDict.getBytes());
+				System.out.println("Response sent...");
+
+				// close sockets
+//			socket.close();
+
+			}catch (Exception e) {
+				System.out.println("Error: " + e);
+			}
 		}
+
 	
 	}
 }
