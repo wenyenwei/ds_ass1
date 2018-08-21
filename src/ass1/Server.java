@@ -12,30 +12,77 @@ import java.util.Map;
 
 class WordProcessor {
 	Map<String, String> wordDatabase = new HashMap<String, String>();
-	// save to dictionary
+	// save to dictionary // add synchronization
 	public WordProcessor() {
 		wordDatabase.put("apple", "A kind of fruit. Red and round.");
 		wordDatabase.put("banana", "A kind of fruit. Yellow and long.");
-		
 	}
 	// get from dictionary
-	public String getWord(String word) {
+	public synchronized String getWord(String word) {
 		System.out.println(wordDatabase.get(word));
 		System.out.println("Looking up definition for word " + word);
 		return wordDatabase.get(word);
 	}
+	// delete from dictionary
+    public synchronized String deleteWord(String word) {
+	    if (getWord(word) == null){
+	        return "Word Not Found";
+        }
+        else{
+            wordDatabase.remove(word);
+            return "Success";
+        }
+    }
+    // add to dictionary
+    public synchronized String addMethod(String word, String definition){
+        if (getWord(word) != null) {
+            return "Word Already Exists.";
+        }
+        else {
+            wordDatabase.put(word, definition);
+            return "Success.";
+        }
+    }
 }
 
 class ServerThread extends Thread {
 	// initialize dictionary object
 	WordProcessor wordWorker = new WordProcessor();
-	
+
 	// initialize socket
 	Socket socket;
 	
 	public ServerThread(Socket socket) {
 		this.socket = socket;
 	}
+
+	private String getMethod(String target) {
+        // print out client input and server message
+        String clinetInput = target.trim();
+        System.out.println("Received: " + clinetInput);
+
+        // get word from dictionary
+        String getFromDict = wordWorker.getWord(clinetInput);
+        System.out.println("Definition retrieved: "+ getFromDict);
+        if (getFromDict == null) {
+            getFromDict = "Error: This word doesn't exist in the dictionary.";
+        }
+        return getFromDict;
+    }
+
+    private String deleteMethod(String target){
+	    // print out client message
+        String clinetInput = target.trim();
+        System.out.println("Received: " + clinetInput);
+        String resultStatus = "";
+        // delete word from dictionary
+        try {
+            resultStatus = wordWorker.deleteWord(clinetInput);
+        }catch (Exception e){
+            resultStatus = "Fail. Please try again.";
+        }
+        return resultStatus;
+    }
 	
 	public void run() {
 		while (true){
@@ -48,28 +95,35 @@ class ServerThread extends Thread {
 				// buffer client input
 				byte buffer[] = new byte[1024];
 				in.read(buffer);
+				String actionInput = new String(buffer);
+				String actionRequest = actionInput.split(",")[0];
+				String actionTarget = actionInput.split(",")[1];
+				String actionArray = actionInput.split(",")[2];
 
-				// print out client input and server message
-				String clinetInput = new String(buffer).trim();
-				System.out.println("Received: " + clinetInput);
-
-				// get word from dictionary
-				String getFromDict = wordWorker.getWord(clinetInput);
-				System.out.println("Definition retrieved: "+ getFromDict);
-				if (getFromDict == null) {
-					getFromDict = "This word doesn't exist in the dictionary.";
-				}
+				// take action according to client action input - can change to switch case
+                String resultWriteString = "";
+                switch (actionRequest){
+                    case "getMethod": resultWriteString = getMethod(actionTarget);
+                    break;
+                    case "deleteMethod": resultWriteString = deleteMethod(actionTarget);
+                    break;
+                    case "addMethod": resultWriteString = wordWorker.addMethod(actionTarget, actionArray);
+                    break;
+                }
 
 				// send reply to client
-				out.write(getFromDict.getBytes());
+				out.write(resultWriteString.getBytes());
 				System.out.println("Response sent...");
-
-				// close sockets
-//			socket.close();
 
 			}catch (Exception e) {
 				System.out.println("Error: " + e);
-			}
+				// close sockets
+                try {
+                    socket.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
 		}
 
 	
@@ -99,7 +153,7 @@ public class Server {
 		// set up server socket
 		ServerSocket serverSocket = new ServerSocket(9090);
 		System.out.println("Listening on port 9090...");
-		
+
 		// process one thread, end thread, open for new connection
 		while(true) {
 			// accept client request

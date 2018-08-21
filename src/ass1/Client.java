@@ -18,16 +18,13 @@ import java.util.Scanner;
 
 public class Client {
     private JPanel JPane;
-    private JButton editButton;
     private JList dictList;
     private JButton deleteButton;
     private JButton searchButton;
     private JButton addButton;
     private JScrollPane scrollPane;
     private JFormattedTextField searchBar;
-    private JPanel resultPane;
     private JLabel resultWord;
-    private JPanel defPane;
     private JLabel statusLabel;
     private JLabel StatusHeading;
     private JPanel msgPane;
@@ -35,12 +32,6 @@ public class Client {
     private String wordToGetFromDict;
 
     public Client() throws UnknownHostException, IOException {
-        editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Hello from the UI side!!");
-            }
-        });
         // create GUI
         JFrame frame = new JFrame("Dictionary");
         frame.setBounds(100, 100, 700, 400);
@@ -53,15 +44,39 @@ public class Client {
 
         // Indicate connected on panel
         System.out.println("Connected to server...");
-//        JLabel labelConnected = new JLabel("Connected to server...");
-//        labelConnected.setFont(new Font("Andale Mono",  Font.BOLD, 14));
-//        labelConnected.setBounds(72, 41, 350, 64);
         statusLabel.setText("Connected to server...");
 
         // i/o of client
         InputStream in = socket.getInputStream();
         OutputStream out = socket.getOutputStream();
+        // remove button
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // get text from search bar
+                wordToGetFromDict = searchBar.getText();
+                // labeling sent
+                System.out.println("Sending word request..");
+                statusLabel.setText("Sending word request..");
+                // send text to server
+                String sendToServer = "";
+                try {
+                    sendToServer = "deleteMethod," + wordToGetFromDict + ",[]";
+                    out.write(sendToServer.getBytes());
+                    // get server message
+                    byte[] response = new byte[1024];
+                    in.read(response);
 
+                    // print out server message
+                    System.out.println("Deletion " + new String(response).trim());
+                    JOptionPane.showMessageDialog(null, "Deletion " + new String(response).trim());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error: "+ e1);
+                }
+//                JOptionPane.showMessageDialog(null, "Hello from the UI side!!");
+            }
+        });
         // search button action listener
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -70,35 +85,59 @@ public class Client {
                 wordToGetFromDict = searchBar.getText();
                 // labeling sent
                 System.out.println("Sending word request..");
-//                JLabel labelSent = new JLabel("Sending word request..");
-//                labelSent.setFont(new Font("Andale Mono",  Font.BOLD, 14));
-//                labelSent.setBounds(72, 41, 350, 64);
-//                msgPane.add(labelSent);
                 statusLabel.setText("Sending word request..");
                 // send text to server
+                String sendToServer = "";
                 try {
-                    out.write(wordToGetFromDict.getBytes());
+                    sendToServer = "getMethod," + wordToGetFromDict + ",[]";
+                    out.write(sendToServer.getBytes());
                     // get server message
                     byte[] response = new byte[1024];
                     in.read(response);
 
                     // print out server message
                     System.out.println("The definition of "+wordToGetFromDict+" is:");
-                    System.out.println(new String(response).trim());
+                    String definition = String.join("\n", new String(response).trim().split("-"));
+                    System.out.println(definition);
 
                     // put server message to panel
-                    resultWord.setText("The definition of "+wordToGetFromDict+" is:");
-                    JLabel labelDef = new JLabel(new String(response).trim());
-                    labelDef.setFont(new Font("Tahoma",  Font.BOLD, 14));
-                    labelDef.setBounds(0, 0, 350, 64);
-                    defPane.add(labelDef);
+                    JOptionPane.showMessageDialog(null, "The definition of "+wordToGetFromDict+" is: \n"+ definition);
+//                    resultWord.setText("The definition of "+wordToGetFromDict+" is:");
+//                    JLabel labelDef = new JLabel(new String(response).trim());
+//                    defPane.add(labelDef);
 
                 } catch (IOException e1) {
                     e1.printStackTrace();
-//                    JLabel labelException = new JLabel("Error: "+ e1);
-//                    labelException.setFont(new Font("Andale Mono",  Font.BOLD, 14));
-//                    labelException.setBounds(72, 41, 350, 64);
-//                    msgPane.add(labelException);
+                    statusLabel.setText("Error: "+ e1);
+                }
+            }
+        });
+        // add word to dictionary
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Enter word and definition in window
+                String word = JOptionPane.showInputDialog("Enter Word:");
+                String definition = JOptionPane.showInputDialog("Enter Definition:\n (Separate with '-' for multiple definition. e.g. Red-Round)");
+
+                // labeling sent
+                System.out.println("Sending word request..");
+                statusLabel.setText("Sending word request..");
+                // send text to server
+                String sendToServer = "";
+                try {
+                    sendToServer = "addMethod," + word + "," + definition;
+                    out.write(sendToServer.getBytes());
+                    // get server message
+                    byte[] response = new byte[1024];
+                    in.read(response);
+
+                    // print out server message and put to panel
+                    System.out.println(new String(response).trim());
+                    JOptionPane.showMessageDialog(null, "Adding " + new String(response).trim());
+
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                     statusLabel.setText("Error: "+ e1);
                 }
             }
@@ -114,7 +153,6 @@ public class Client {
 
         // close sockets
 //        socket.close();
-
     }
 
     public static void main(String[] args) throws UnknownHostException, IOException {
