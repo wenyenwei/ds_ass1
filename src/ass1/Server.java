@@ -3,10 +3,7 @@ package ass1;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -85,7 +82,8 @@ class ServerThread extends Thread {
     }
 	
 	public void run() {
-		while (true){
+	    boolean runStatus = true;
+		while (runStatus){
 			try {
 				// in and out stream
 				InputStream in = socket.getInputStream();
@@ -96,33 +94,36 @@ class ServerThread extends Thread {
 				byte buffer[] = new byte[1024];
 				in.read(buffer);
 				String actionInput = new String(buffer);
-				String actionRequest = actionInput.split(",")[0];
-				String actionTarget = actionInput.split(",")[1];
-				String actionArray = actionInput.split(",")[2];
+				if (actionInput != null){
+                    String actionRequest = actionInput.split(",")[0];
+                    String actionTarget = actionInput.split(",")[1];
+                    String actionArray = actionInput.split(",")[2];
 
-				// take action according to client action input - can change to switch case
-                String resultWriteString = "";
-                switch (actionRequest){
-                    case "getMethod": resultWriteString = getMethod(actionTarget);
-                    break;
-                    case "deleteMethod": resultWriteString = deleteMethod(actionTarget);
-                    break;
-                    case "addMethod": resultWriteString = wordWorker.addMethod(actionTarget, actionArray);
-                    break;
+                    // take action according to client action input - can change to switch case
+                    String resultWriteString = "";
+                    switch (actionRequest){
+                        case "getMethod": resultWriteString = getMethod(actionTarget);
+                            break;
+                        case "deleteMethod": resultWriteString = deleteMethod(actionTarget);
+                            break;
+                        case "addMethod": resultWriteString = wordWorker.addMethod(actionTarget, actionArray);
+                            break;
+                    }
+
+                    // send reply to client
+                    out.write(resultWriteString.getBytes());
+                    System.out.println("Response sent...");
                 }
 
-				// send reply to client
-				out.write(resultWriteString.getBytes());
-				System.out.println("Response sent...");
-
 			}catch (Exception e) {
-				System.out.println("Error: " + e);
-				// close sockets
+                runStatus = false;
                 try {
                     socket.close();
                 } catch (IOException e1) {
                     e1.printStackTrace();
+                    System.out.println("Error: " + e);
                 }
+                System.out.println("Error hihi: " + e);
             }
 		}
 
@@ -132,7 +133,7 @@ class ServerThread extends Thread {
 
 public class Server {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws SocketException, IOException {
 //		// set up a datagram socket
 //		DatagramSocket dgSocket = new DatagramSocket(8080);
 //		
@@ -156,15 +157,19 @@ public class Server {
 
 		// process one thread, end thread, open for new connection
 		while(true) {
-			// accept client request
-			System.out.println("Waiting for client..");
-			Socket socket = serverSocket.accept();
-			System.out.println("Client connected");
-			
-			// create new thread for each client connection
-			System.out.println("Starting a new server thread..");
-			new ServerThread(socket).start(); 
+		    try {
+                // accept client request
+                System.out.println("Waiting for client..");
+                Socket socket = serverSocket.accept();
+                System.out.println("Client connected");
 
+                // create new thread for each client connection
+                System.out.println("Starting a new server thread..");
+                new ServerThread(socket).start();
+            }
+            catch(Exception e){
+		        System.out.println("Error: "+e);
+            }
 		}
 	}
 

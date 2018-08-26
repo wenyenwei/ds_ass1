@@ -32,16 +32,34 @@ public class Client {
     private String wordToGetFromDict;
 
     public Client() throws UnknownHostException, IOException {
+        // connect to server socket
+        Socket socket = new Socket("127.0.0.1", 9090);
+
         // create GUI
         JFrame frame = new JFrame("Dictionary");
         frame.setBounds(100, 100, 700, 400);
         frame.setContentPane(JPane);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
-        // connect to server socket
-        Socket socket = new Socket("127.0.0.1", 9090);
-
+        frame.addWindowListener(new java.awt.event.WindowAdapter(){
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(frame,
+                        "Are you sure to close this window?", "Closing?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                        System.exit(0);
+//                        problem with no option
+                        try {
+                            // close sockets
+                            socket.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            statusLabel.setText("Error: "+e);
+                        }
+                }
+                }
+        });
         // Indicate connected on panel
         System.out.println("Connected to server...");
         statusLabel.setText("Connected to server...");
@@ -115,30 +133,38 @@ public class Client {
         // add word to dictionary
         addButton.addActionListener(new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent e) {
                 // Enter word and definition in window
                 String word = JOptionPane.showInputDialog("Enter Word:");
-                String definition = JOptionPane.showInputDialog("Enter Definition:\n (Separate with '-' for multiple definition. e.g. Red-Round)");
+                if (word != null && word.length() > 0){
+                    String definition = JOptionPane.showInputDialog("Enter Definition:\n (Separate with '-' for multiple definition. e.g. Red-Round)");
+                    // labeling sent
+                    if (definition != null && definition.length() > 0){
+                        System.out.println("Sending word request..");
+                        statusLabel.setText("Sending word request..");
+                        // send text to server
+                        String sendToServer = "";
+                        try {
+                            sendToServer = "addMethod," + word + "," + definition;
+                            out.write(sendToServer.getBytes());
+                            // get server message
+                            byte[] response = new byte[1024];
+                            in.read(response);
 
-                // labeling sent
-                System.out.println("Sending word request..");
-                statusLabel.setText("Sending word request..");
-                // send text to server
-                String sendToServer = "";
-                try {
-                    sendToServer = "addMethod," + word + "," + definition;
-                    out.write(sendToServer.getBytes());
-                    // get server message
-                    byte[] response = new byte[1024];
-                    in.read(response);
+                            // print out server message and put to panel
+                            System.out.println(new String(response).trim());
+                            JOptionPane.showMessageDialog(null, "Adding " + new String(response).trim());
 
-                    // print out server message and put to panel
-                    System.out.println(new String(response).trim());
-                    JOptionPane.showMessageDialog(null, "Adding " + new String(response).trim());
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                    statusLabel.setText("Error: "+ e1);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                            statusLabel.setText("Error: "+ e1);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Input can't be null, please try again.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Input can't be null, please try again.");
                 }
             }
         });
@@ -151,8 +177,7 @@ public class Client {
 //        }
 
 
-        // close sockets
-//        socket.close();
+
     }
 
     public static void main(String[] args) throws UnknownHostException, IOException {
