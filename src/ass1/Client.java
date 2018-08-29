@@ -16,6 +16,11 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+class InputNullException extends Exception
+{
+    public InputNullException() {}
+}
+
 public class Client {
     private JPanel JPane;
     private JList dictList;
@@ -44,20 +49,21 @@ public class Client {
         frame.addWindowListener(new java.awt.event.WindowAdapter(){
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                if (JOptionPane.showConfirmDialog(frame,
-                        "Are you sure to close this window?", "Closing?",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-                        System.exit(0);
+//                if (JOptionPane.showConfirmDialog(frame,
+//                        "Are you sure to close this window?", "Closing?",
+//                        JOptionPane.YES_NO_OPTION,
+//                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//                        System.exit(0);
 //                        problem with no option
                         try {
                             // close sockets
                             socket.close();
+                            System.exit(0);
                         } catch (IOException e) {
                             e.printStackTrace();
                             statusLabel.setText("Error: "+e);
                         }
-                }
+//                }
                 }
         });
         // Indicate connected on panel
@@ -137,33 +143,41 @@ public class Client {
             public void actionPerformed(ActionEvent e) {
                 // Enter word and definition in window
                 String word = JOptionPane.showInputDialog("Enter Word:");
-                if (word != null && word.length() > 0){
-                    String definition = JOptionPane.showInputDialog("Enter Definition:\n (Separate with '-' for multiple definition. e.g. Red-Round)");
-                    // labeling sent
-                    if (definition != null && definition.length() > 0){
-                        System.out.println("Sending word request..");
-                        statusLabel.setText("Sending word request..");
-                        // send text to server
-                        String sendToServer = "";
-                        try {
-                            sendToServer = "addMethod," + word + "," + definition;
-                            out.write(sendToServer.getBytes());
-                            // get server message
-                            byte[] response = new byte[1024];
-                            in.read(response);
-
-                            // print out server message and put to panel
-                            System.out.println(new String(response).trim());
-                            JOptionPane.showMessageDialog(null, "Adding " + new String(response).trim());
-
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                            statusLabel.setText("Error: "+ e1);
-                        }
+                try {
+                    if (word == null || word.length() == 0) {
+                        throw new InputNullException();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Input can't be null, please try again.");
+                        String definition = JOptionPane.showInputDialog("Enter Definition:\n (Separate with '-' for multiple definition. e.g. Red-Round)");
+                        // labeling sent
+                        try {
+                            if (definition == null || definition.length() == 0) {
+                                throw new InputNullException();
+                            } else {
+                                System.out.println("Sending word request..");
+                                statusLabel.setText("Sending word request..");
+                                // send text to server
+                                String sendToServer = "";
+                                try {
+                                    sendToServer = "addMethod," + word + "," + definition;
+                                    out.write(sendToServer.getBytes());
+                                    // get server message
+                                    byte[] response = new byte[1024];
+                                    in.read(response);
+
+                                    // print out server message and put to panel
+                                    System.out.println(new String(response).trim());
+                                    JOptionPane.showMessageDialog(null, "Adding " + new String(response).trim());
+
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                    statusLabel.setText("Error: " + e1);
+                                }
+                            }
+                        } catch (InputNullException ex1) {
+                            JOptionPane.showMessageDialog(null, "Input can't be null, please try again.");
+                        }
                     }
-                } else {
+                } catch (InputNullException ex) {
                     JOptionPane.showMessageDialog(null, "Input can't be null, please try again.");
                 }
             }

@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17656886-7971-4903-83b2-beb48361f9e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ass1/Server.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/ServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/WordProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/WordProcessor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ass1/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ass1/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ass1/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ass1/Server.java" afterDir="false" />
     </list>
@@ -25,7 +25,7 @@
     <session id="595498523">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -34,38 +34,46 @@
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MF" value="2" />
           <entry key="class" value="1" />
-          <entry key="form" value="5" />
+          <entry key="form" value="6" />
           <entry key="java" value="14" />
           <entry key="properties" value="1" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="GUI_DESIGNER_FORM" value="5" />
+          <entry key="GUI_DESIGNER_FORM" value="6" />
           <entry key="JAVA" value="14" />
           <entry key="Manifest" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4427" />
+          <entry key="java" value="5072" />
+          <entry key="txt" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4427" />
+          <entry key="JAVA" value="5072" />
+          <entry key="PLAIN_TEXT" value="40" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -73,22 +81,27 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="27">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#237#253#0" expanded="true" />
+                <element signature="e#4605#5435#0" expanded="true" />
+                <element signature="e#5434#5435#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="159" column="49" lean-forward="true" selection-start-line="159" selection-start-column="49" selection-end-line="159" selection-end-column="49" />
+            <state relative-caret-position="235">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2485#3383#0" expanded="true" />
+                <element signature="e#3382#3383#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,6 +109,11 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Client.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ass1/Server.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
@@ -111,9 +129,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>searchBar</find>
-      <find>WordProcessor</find>
       <find>hello</find>
       <find>Error</find>
+      <find>WordProcessor</find>
+      <find>main</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,8 +146,10 @@
         <option value="$PROJECT_DIR$/src/ass1/UI.form" />
         <option value="$PROJECT_DIR$/src/ass1/UI.java" />
         <option value="$PROJECT_DIR$/src/ass1/Client.form" />
-        <option value="$PROJECT_DIR$/src/ass1/Server.java" />
         <option value="$PROJECT_DIR$/src/ass1/Client.java" />
+        <option value="$PROJECT_DIR$/src/ass1/Server.form" />
+        <option value="$PROJECT_DIR$/server-dictionary.txt" />
+        <option value="$PROJECT_DIR$/src/ass1/Server.java" />
       </list>
     </option>
   </component>
@@ -138,8 +159,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-292" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="765" />
@@ -149,6 +169,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,19 +189,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ass1" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ds_ass1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ds_ass1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ass1" type="462c0819:PsiDirectoryNode" />
-              <item name="Server.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -187,7 +200,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/apple/Desktop/ds_ass1/META-INF/MANIFEST.MF" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535300277038" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535545501485" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -288,12 +301,13 @@
       <workItem from="1534920055477" duration="1798000" />
       <workItem from="1534923275399" duration="241000" />
       <workItem from="1534924559844" duration="2197000" />
-      <workItem from="1534982818650" duration="2405000" />
+      <workItem from="1534982818650" duration="2492000" />
+      <workItem from="1535540856472" duration="4174000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33271000" />
+    <option name="totallyTimeSpent" value="37532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,10 +319,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-292" y="23" width="1400" height="765" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18041237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17739628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -317,13 +330,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32973805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22882615" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22771084" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990755" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32973805" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.16987951" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32973805" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32973805" />
@@ -403,28 +416,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ass1/Client.form">
+    <entry file="file://$PROJECT_DIR$/src/ass1/Server.form">
       <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-dictionary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ass1/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="27">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#237#253#0" expanded="true" />
+            <element signature="e#4605#5435#0" expanded="true" />
+            <element signature="e#5434#5435#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ass1/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="159" column="49" lean-forward="true" selection-start-line="159" selection-start-column="49" selection-end-line="159" selection-end-column="49" />
+        <state relative-caret-position="235">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2485#3383#0" expanded="true" />
+            <element signature="e#3382#3383#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ass1/Client.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
   </component>
 </project>

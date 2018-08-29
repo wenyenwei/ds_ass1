@@ -1,8 +1,7 @@
 package ass1;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.swing.*;
+import java.io.*;
 import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,8 +10,19 @@ class WordProcessor {
 	Map<String, String> wordDatabase = new HashMap<String, String>();
 	// save to dictionary // add synchronization
 	public WordProcessor() {
-		wordDatabase.put("apple", "A kind of fruit. Red and round.");
-		wordDatabase.put("banana", "A kind of fruit. Yellow and long.");
+        // file input
+        try (BufferedReader br = new BufferedReader(new FileReader("server-dictionary.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line.split("=>")[0]);
+                System.out.println(line.split("=>")[1]);
+                wordDatabase.put(line.split("=>")[0], line.split("=>")[1]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	// get from dictionary
 	public synchronized String getWord(String word) {
@@ -43,6 +53,8 @@ class WordProcessor {
 }
 
 class ServerThread extends Thread {
+
+
 	// initialize dictionary object
 	WordProcessor wordWorker = new WordProcessor();
 
@@ -133,7 +145,75 @@ class ServerThread extends Thread {
 
 public class Server {
 
-	public static void main(String[] args) throws SocketException, IOException {
+    private JLabel ConnectedClientLabel;
+    private JPanel ServerPane;
+    private JLabel ServerStatusLabel;
+
+    public Server() throws IOException {
+
+        // set up server socket
+        ServerSocket serverSocket = new ServerSocket(9090);
+        System.out.println("Listening on port 9090...");
+
+        // init dictionary
+        new WordProcessor();
+
+        // create GUI
+        JFrame frame = new JFrame("Server");
+        frame.setBounds(100, 100, 700, 400);
+        frame.setContentPane(ServerPane);
+        frame.setVisible(true);
+        frame.addWindowListener(new java.awt.event.WindowAdapter(){
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                try {
+                    // close sockets
+                    serverSocket.close();
+
+                    // output dictionary to file
+                    PrintWriter writer = new PrintWriter("server-dictionary.txt", "UTF-8");
+                    Map<String, String> outputWorker = new WordProcessor().wordDatabase;
+                    for (Map.Entry<String, String> entry : outputWorker.entrySet()) {
+                        String key = entry.getKey();
+                        Object value = entry.getValue();
+                        writer.println(key + "=>" + value);
+                    }
+                    writer.close();
+
+                    // exit the system
+                    System.exit(0);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    ServerStatusLabel.setText("Status: "+e);
+                }
+            }
+        });
+
+        int connectedClientNum = 0;
+        // process one thread, end thread, open for new connection
+        while(true) {
+            try {
+                // accept client request
+                System.out.println("Waiting for client..");
+                Socket socket = serverSocket.accept();
+                System.out.println("Client connected");
+
+                // create new thread for each client connection
+                System.out.println("Starting a new server thread..");
+                new ServerThread(socket).start();
+                connectedClientNum ++ ;
+                ConnectedClientLabel.setText("Connected Clients: "+ connectedClientNum);
+            }
+            catch(Exception e){
+                System.out.println("Error: "+e);
+            }
+        }
+    }
+
+
+
+    public static void main(String[] args) throws SocketException, IOException {
 //		// set up a datagram socket
 //		DatagramSocket dgSocket = new DatagramSocket(8080);
 //		
@@ -150,27 +230,10 @@ public class Server {
 //		
 //		// close the datagram socket
 //		dgSocket.close();
-		
-		// set up server socket
-		ServerSocket serverSocket = new ServerSocket(9090);
-		System.out.println("Listening on port 9090...");
 
-		// process one thread, end thread, open for new connection
-		while(true) {
-		    try {
-                // accept client request
-                System.out.println("Waiting for client..");
-                Socket socket = serverSocket.accept();
-                System.out.println("Client connected");
+        new Server();
 
-                // create new thread for each client connection
-                System.out.println("Starting a new server thread..");
-                new ServerThread(socket).start();
-            }
-            catch(Exception e){
-		        System.out.println("Error: "+e);
-            }
-		}
+
 	}
 
 }
