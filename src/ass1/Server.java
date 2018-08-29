@@ -148,14 +148,23 @@ public class Server {
     private JLabel ConnectedClientLabel;
     private JPanel ServerPane;
     private JLabel ServerStatusLabel;
+    private int port;
+    private String file;
+
+    private void setPort(int portInput) {
+        port = portInput;
+    }
+    private void setFile(String fileInput) {
+        file = fileInput;
+    }
 
     public Server() throws IOException {
-
         // set up server socket
-        ServerSocket serverSocket = new ServerSocket(9090);
+        ServerSocket serverSocket = new ServerSocket(port);
         System.out.println("Listening on port 9090...");
 
-        // init dictionary
+        // init diction
+        // ary
         new WordProcessor();
 
         // create GUI
@@ -171,7 +180,7 @@ public class Server {
                     serverSocket.close();
 
                     // output dictionary to file
-                    PrintWriter writer = new PrintWriter("server-dictionary.txt", "UTF-8");
+                    PrintWriter writer = new PrintWriter(file, "UTF-8");
                     Map<String, String> outputWorker = new WordProcessor().wordDatabase;
                     for (Map.Entry<String, String> entry : outputWorker.entrySet()) {
                         String key = entry.getKey();
@@ -231,8 +240,10 @@ public class Server {
 //		// close the datagram socket
 //		dgSocket.close();
 
-        new Server();
 
+        Server newServer = new Server();
+        newServer.setPort(Integer.parseInt(args[0]));
+        newServer.setFile(args[1]);
 
 	}
 

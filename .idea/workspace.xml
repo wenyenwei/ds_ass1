@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ds_ass1:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="17656886-7971-4903-83b2-beb48361f9e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ass1/Server.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds_ass1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ass1/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ass1/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds_ass1/ass1/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ass1/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ass1/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,7 +25,8 @@
     <session id="595498523">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -36,7 +37,8 @@
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -44,31 +46,37 @@
           <entry key="MF" value="2" />
           <entry key="class" value="1" />
           <entry key="form" value="6" />
+          <entry key="gitignore" value="1" />
+          <entry key="iml" value="1" />
           <entry key="java" value="14" />
           <entry key="properties" value="1" />
           <entry key="txt" value="1" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="GUI_DESIGNER_FORM" value="6" />
+          <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="14" />
           <entry key="Manifest" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="1" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5072" />
+          <entry key="gitignore" value="10" />
+          <entry key="java" value="5397" />
           <entry key="txt" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5072" />
-          <entry key="PLAIN_TEXT" value="40" />
+          <entry key="JAVA" value="5397" />
+          <entry key="PLAIN_TEXT" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -81,14 +89,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="384">
+              <caret line="239" column="36" lean-forward="true" selection-start-line="239" selection-start-column="36" selection-end-line="239" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#237#253#0" expanded="true" />
-                <element signature="e#4605#5435#0" expanded="true" />
-                <element signature="e#5434#5435#0" expanded="true" />
+                <element signature="e#4809#4810#0" expanded="true" />
+                <element signature="e#4835#4836#0" expanded="true" />
+                <element signature="e#4893#4894#0" expanded="true" />
+                <element signature="e#4925#4926#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -96,12 +114,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="300">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2485#3383#0" expanded="true" />
-                <element signature="e#3382#3383#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,7 +128,7 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ass1/Server.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
@@ -150,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/ass1/Server.form" />
         <option value="$PROJECT_DIR$/server-dictionary.txt" />
         <option value="$PROJECT_DIR$/src/ass1/Server.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -169,7 +186,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -177,6 +194,11 @@
             <path>
               <item name="ds_ass1" type="b2602c69:ProjectViewProjectNode" />
               <item name="ds_ass1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ds_ass1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ds_ass1" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ds_ass1" type="b2602c69:ProjectViewProjectNode" />
@@ -189,18 +211,28 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ass1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ds_ass1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ds_ass1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ass1" type="462c0819:PsiDirectoryNode" />
+              <item name="Server.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/apple/Desktop/ds_ass1/META-INF/MANIFEST.MF" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535545501485" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535547848682" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -220,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ass1.Client" />
       <module name="ds_ass1" />
@@ -275,8 +307,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.UI (1)" />
         <item itemvalue="Application.UI" />
       </list>
@@ -302,12 +334,14 @@
       <workItem from="1534923275399" duration="241000" />
       <workItem from="1534924559844" duration="2197000" />
       <workItem from="1534982818650" duration="2492000" />
-      <workItem from="1535540856472" duration="4174000" />
+      <workItem from="1535540856472" duration="4698000" />
+      <workItem from="1535546177506" duration="136000" />
+      <workItem from="1535546510493" duration="1276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37532000" />
+    <option name="totallyTimeSpent" value="39468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,8 +354,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17739628" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18168813" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -331,12 +366,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32973805" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22771084" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990755" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3987952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.16987951" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.16987951" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32973805" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32973805" />
@@ -416,9 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ass1/Server.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server-dictionary.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -426,27 +458,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/ds_ass1_jar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ds_ass1.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ass1/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="384">
+          <caret line="239" column="36" lean-forward="true" selection-start-line="239" selection-start-column="36" selection-end-line="239" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#237#253#0" expanded="true" />
-            <element signature="e#4605#5435#0" expanded="true" />
-            <element signature="e#5434#5435#0" expanded="true" />
+            <element signature="e#4809#4810#0" expanded="true" />
+            <element signature="e#4835#4836#0" expanded="true" />
+            <element signature="e#4893#4894#0" expanded="true" />
+            <element signature="e#4925#4926#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ass1/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="300">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2485#3383#0" expanded="true" />
-            <element signature="e#3382#3383#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -454,5 +495,92 @@
     <entry file="file://$PROJECT_DIR$/src/ass1/Client.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ass1/Server.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>ds_ass1:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>OSGi</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ds_ass1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
